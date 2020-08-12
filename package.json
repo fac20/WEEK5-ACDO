@@ -1,0 +1,27 @@
+{
+  "name": "WEEK5-ACDO",
+  "version": "1.0.0",
+  "description": "",
+  "main": "router.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fac20/WEEK5-ACDO.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fac20/WEEK5-ACDO/issues"
+  },
+  "homepage": "https://github.com/fac20/WEEK5-ACDO#readme",
+  "devDependencies": {
+    "supertest": "^4.0.2",
+    "tap-spec": "^5.0.0",
+    "tape": "^5.0.1",
+    "nodemon": "^2.0.4"
+  }
+}
