@@ -4,7 +4,7 @@
   "description": "",
   "main": "router.js",
   "scripts": {
-    "test": "node ./test/test.js | tap-spec ", 
+    "test": "node ./test/test.js | tap-spec ",
     "start": "node server.js",
     "test-db": "node ./test/model.test.js | tap-spec"
   },
