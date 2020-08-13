@@ -18,7 +18,7 @@ test("Home route", t => {
 // Test for CSS static page
 test("Correctly gets CSS", t => {
     supertest(router)
-      .get("/")
+      .get("/public/styles.css")
       .expect(200)
       .expect("Content-Type", "text/css")
       .end((err, res) => {
