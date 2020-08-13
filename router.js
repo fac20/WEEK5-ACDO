@@ -1,4 +1,4 @@
-//we need handlers for home, public, missing, submit
+//we need handlers for home, publ{}ic, missing, submit
 //also for the model so the server can talk to the database?
 
 const homeHandler = require("./handlers/home");
