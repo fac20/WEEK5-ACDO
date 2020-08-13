@@ -4,6 +4,7 @@
 const homeHandler = require("./handlers/home");
 const publicHandler = require("./handlers/public");
 const missingHandler = require("./handlers/missing");
+const getPostsHandler = require("./handlers/getPosts");
 const submitHandler = require("./handlers/submit");
 
 function router(request, response) {
@@ -16,6 +17,8 @@ function router(request, response) {
         publicHandler(request, response);
     } else if (url.includes("submit" && method == "POST")) {
         submitHandler(request, response);
+    } else if (url.includes("get-posts")){
+        getPostsHandler(request, response);    
     } else {
         missingHandler(request, response);
     }
