@@ -1,3 +1,4 @@
+
 const test = require("tape");
 const supertest = require("supertest");
 const router = require("./../router");
@@ -27,3 +28,17 @@ test("Correctly gets CSS", t => {
         t.end();
       });
   });
+
+
+// Test for missing handler
+test("Correctly redirects to missing page", t => {
+  supertest(router)
+    .get("/wooooooooof")
+    .expect(404)
+    .expect("Content-Type", "text/html")
+    .end((err, res) => {
+      t.error(err);
+      t.equal(res.text.includes("<h1>B!tch please! That does not exist!</h1>"), true);
+      t.end();
+    });
+});

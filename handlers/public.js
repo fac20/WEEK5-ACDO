@@ -13,14 +13,17 @@ const types = {
 function publicHandler(request, response){
     const url = request.url;
     console.log(url);
-    const filePath = path.join(__dirname, "../public/index.html");
+    const urlArray = url.split(".");
+    const extension = urlArray[1];
+    const type = types[extension];
+    const filePath = path.join(__dirname, "..", url);
     fs.readFile(filePath, (error, file) => {
         if (error){
             console.error(error);
             response.writeHead(404, {"content-type" : "text/html"});
             response.end("<h1>Not Found</h1>");
         } else {
-          response.writeHead(200, {"content-type" : "text/html"});
+          response.writeHead(200, {"content-type" : type});
           response.end(file);
         }
 });
