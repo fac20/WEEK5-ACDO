@@ -12,7 +12,6 @@ const types = {
 
 function publicHandler(request, response){
     const url = request.url;
-    console.log(url);
     const urlArray = url.split(".");
     const extension = urlArray[1];
     const type = types[extension];

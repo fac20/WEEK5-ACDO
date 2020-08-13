@@ -14,7 +14,7 @@ CREATE TABLE posts (
     user_id INTEGER REFERENCES users(id),
     post_title VARCHAR(280),
     text_content TEXT NOT NULL,
-    posted_at TIMESTAMPTZ,
+    posted_at TIMESTAMP,
     image_link TEXT
 );
 
