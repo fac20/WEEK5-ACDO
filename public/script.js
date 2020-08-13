@@ -1,3 +1,6 @@
+const submitBtn = document.querySelector("input[type=submit]");
+
+
 function getPosts() {
   return fetch("/get-posts")
     .then((res) => {
@@ -10,29 +13,36 @@ function getPosts() {
     .then((res) => res.json())
     .then((data) => {
       const posts = data.map((object) => {
-        let title = object.title;
-        let message = object.message;
-        return createPosts(title, message);
+        return createPosts(object);
       });
     })
     .catch((error) => console.log(error));
 }
 
-// function createPosts(title, message) {
-//   const template = document.querySelector("template");
-//   const content = template.content.querySelector("article");
-//   const newPost = content.cloneNode(true);
+function createPosts(object) {
+  let username = object.username;
+  let location = object.location;
+  let postTitle = object.post_title;
+  let textContent = object.text_content;
+  let time = object.posted_at;
+  let imgSrc = object.image_link;
 
-//   const h2 = newPost.querySelector("h2");
-//   const p = newPost.querySelector("p");
+  const messageBoard = document.querySelector(".messages");
+  const template = document.querySelector("template");
+  const content = template.content.querySelector("article");
+  const newPost = content.cloneNode(true);
 
-//   h2.textContent = title;
-//   p.textContent = message;
+  const h3 = newPost.querySelector(".dogpost__msgtitle");
+  const p = newPost.querySelector(".dogpost__message");
 
-//   main.appendChild(newPost);
-// }
+  h3.textContent = postTitle;
+  p.textContent = textContent;
 
-// submitButton.addEventListener("click", getPosts);
+  messageBoard.appendChild(newPost);
+
+}
+
+submitBtn.addEventListener("click", getPosts);
 
 // // get posts on page load
-// getPosts();
+getPosts();
