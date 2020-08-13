@@ -1,11 +1,10 @@
-const dotenv = require("dotenv");
+require("dotenv").config();
 const pg = require("pg");
-dotenv.config();
-console.log(process.env.DATABASE_URL);
+
 const connectStr = process.env.DATABASE_URL;
 
-const db = new pg.Pool({ connectStr });
+const db = new pg.Pool({ connectionString: connectStr });
 
-db.query("SELECT * FROM users").then((result)=> console.log(result));
+// db.query("SELECT * FROM users").then((result)=> console.log(result));
 
 module.exports = db;

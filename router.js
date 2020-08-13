@@ -14,7 +14,7 @@ function router(request, response) {
         homeHandler(request, response);
     } else if (url.includes("public")) {
         publicHandler(request, response);
-    } else if (url.includes("submit" && method == "POST")) {
+    } else if (url.includes("submit") && method === "POST") {
         submitHandler(request, response);
     } else {
         missingHandler(request, response);
