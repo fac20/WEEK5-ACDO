@@ -21,7 +21,7 @@ function getPosts() {
 
 function createPosts(object) {
   let username = object.username;
-  let location = object.location;
+  // let location = object.location;
   let postTitle = object.post_title;
   let textContent = object.text_content;
   let time = object.posted_at;
@@ -33,10 +33,16 @@ function createPosts(object) {
   const newPost = content.cloneNode(true);
 
   const h3 = newPost.querySelector(".dogpost__msgtitle");
-  const p = newPost.querySelector(".dogpost__message");
+  const message = newPost.querySelector(".dogpost__message");
+  const postedBy = newPost.querySelector(".dogpost__details__name");
+  const timePosted = newPost.querySelector(".dogpost__details__time");
+  const portrait = newPost.querySelector(".dogpost__image");
 
   h3.textContent = postTitle;
-  p.textContent = textContent;
+  message.textContent = textContent;
+  postedBy.textContent = username;
+  timePosted.textContent = time;
+  portrait.src = imgSrc;
 
   messageBoard.appendChild(newPost);
 
