@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS users, posts CASCADE;
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
-    username VARCHAR(20) NOT NULL UNIQUE,
+    username VARCHAR(20) NOT NULL,
     location VARCHAR(30)
 );
 

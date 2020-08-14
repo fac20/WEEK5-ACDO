@@ -16,21 +16,7 @@ function submitHandler(request, response) {
         // const date = data.get("date");
         console.log(data)
 
-<<<<<<< HEAD
-        const add = async function() {
-            await db.query("INSERT INTO users(username) VALUES($1) WHERE NOT EXISTS (SELECT id FROM users WHERE username = $1))", [name])//if duplicate values then unique constraint will throw error. Need to have an error block to handle this.
-            await db.query("INSERT INTO posts(post_title, text_content, user_id) VALUES($1, $2, (SELECT id FROM users WHERE username = $3))", [msgtitle, message, name])
-        }
-        add();
-||||||| b4036d7
-        const add = async function() {
-            await db.query("INSERT INTO users(username) VALUES($1)", [name])//if duplicate values then unique constraint will throw error. Need to have an error block to handle this.
-            await db.query("INSERT INTO posts(post_title, text_content, user_id) VALUES($1, $2, (SELECT id FROM users WHERE username = $3))", [msgtitle, message, name])
-        }
-        add();
-=======
         model.add(name, msgtitle, message);
->>>>>>> master
 
         // (if (db.query("SELECT username FROM users WHERE $1"))
     //     IF boolean-expression THEN
