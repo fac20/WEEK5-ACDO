@@ -1,7 +1,7 @@
 {
   "name": "WEEK5-ACDO",
   "version": "1.0.0",
-  "description": "",
+  "description": "dog app",
   "main": "router.js",
   "scripts": {
     "test": "node ./test/test.js | tap-spec ",
@@ -31,5 +31,8 @@
     "dotenv": "^8.2.0",
     "env": "0.0.2",
     "pg": "^8.3.0"
+  },
+  "engines": {
+    "node": "14.5.0"
   }
 }
