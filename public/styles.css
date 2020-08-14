@@ -2,6 +2,6 @@ body {
     
     --primary-colour: blue;
     --secondary-colour: pink;
-    cursor: url('chicken.png'), auto;
+    /* cursor: url('chicken.png'), auto; */
 }
 

@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const db = require("../database/connection");
+const model = require("./model");
 
 function submitHandler(request, response) {
     let body = "";
@@ -15,11 +16,7 @@ function submitHandler(request, response) {
         // const date = data.get("date");
         console.log(data)
 
-        const add = async function() {
-            await db.query("INSERT INTO users(username) VALUES($1)", [name])//if duplicate values then unique constraint will throw error. Need to have an error block to handle this.
-            await db.query("INSERT INTO posts(post_title, text_content, user_id) VALUES($1, $2, (SELECT id FROM users WHERE username = $3))", [msgtitle, message, name])
-        }
-        add();
+        model.add(name, msgtitle, message);
 
         // (if (db.query("SELECT username FROM users WHERE $1"))
         response.writeHead(302, { "location": "/" });
