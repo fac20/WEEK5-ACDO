@@ -30,7 +30,7 @@ main {
 }
 
 .dogpost {
-    margin: auto 1rem;
+    margin: 1rem auto;
     border: 1px solid var(--primary-colour);
     padding: 1rem;
 }

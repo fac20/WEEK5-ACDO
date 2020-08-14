@@ -10,3 +10,7 @@ const server = http.createServer(router);
 server.listen(PORT, hostname, () => console.log(`Woof! Listening on http://${hostname}:${PORT}`));
 
 // catch server error here 
+process.on("unhandledRejection", error => {
+    console.error(error);
+    process.exit(1);
+    });
