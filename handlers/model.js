@@ -9,7 +9,8 @@ function getPostsData(){
  const add = async function(name, msgtitle, message) {
      try {
         let nameInsertion = await db.query("INSERT INTO users(username) VALUES($1)", [name])//if duplicate values then unique constraint will throw error. Need to have an error block to handle this.
-        let postInsertion = await db.query("INSERT INTO posts(post_title, text_content, user_id) VALUES($1, $2, (SELECT id FROM users WHERE username = $3))", [msgtitle, message, name])
+        let postInsertion = await db.query("INSERT INTO posts(post_title, text_content, user_id) VALUES($1, $2, (SELECT id FROM users WHERE username = $3 LIMIT 1)))", [msgtitle, message, name])
+        
 
         return nameInsertion, postInsertion;
      }
