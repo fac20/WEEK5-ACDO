@@ -16,14 +16,19 @@ function submitHandler(request, response) {
         console.log(data)
 
         const add = async function() {
-            await db.query("INSERT INTO users(username) VALUES($1)", [name])//if duplicate values then unique constraint will throw error. Need to have an error block to handle this.
+            await db.query("INSERT INTO users(username) VALUES($1) WHERE NOT EXISTS (SELECT id FROM users WHERE username = $1))", [name])//if duplicate values then unique constraint will throw error. Need to have an error block to handle this.
             await db.query("INSERT INTO posts(post_title, text_content, user_id) VALUES($1, $2, (SELECT id FROM users WHERE username = $3))", [msgtitle, message, name])
         }
         add();
 
         // (if (db.query("SELECT username FROM users WHERE $1"))
+    //     IF boolean-expression THEN
+    //     statements
+    // END IF;
+
         response.writeHead(302, { "location": "/" });
         response.end();
+
     });
     request.on("error", error => {
         response.writeHead(500, { "content-type" : "text/html" });
