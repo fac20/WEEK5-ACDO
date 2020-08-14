@@ -3,7 +3,7 @@ BEGIN;
 --add drop table here
 DROP TABLE IF EXISTS users, posts CASCADE;
 
-CREATE nTABLE users (
+CREATE TABLE users ( 
     id SERIAL PRIMARY KEY,
     username VARCHAR(20) NOT NULL UNIQUE,
     location VARCHAR(30)
