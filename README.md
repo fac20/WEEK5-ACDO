@@ -19,3 +19,4 @@ Aishah - Design
 Jennifer - Deployment
 My Hoa - Quality
 
+![](https://files.slack.com/files-pri/TJ91QJ800-F018BST9MQF/image.png)
