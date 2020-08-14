@@ -19,9 +19,9 @@ function submitHandler(request, response) {
         model.add(name, msgtitle, message);
 
         // (if (db.query("SELECT username FROM users WHERE $1"))
-    //     IF boolean-expression THEN
-    //     statements
-    // END IF;
+        //     IF boolean-expression THEN
+        //     statements
+        // END IF;
 
         response.writeHead(302, { "location": "/" });
         response.end();
