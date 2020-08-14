@@ -59,8 +59,6 @@ function createPosts(object) {
 
 }
 
-// event listener for submit button
-submitBtn.addEventListener("click", getPosts);
+// event listener for reload
+window.addEventListener("load", getPosts);
 
-// get posts on page load
-getPosts();
