@@ -1,8 +1,4 @@
-// const form = document.querySelector(".forminput__form")
 
-// const putDate = form => {
-//     form.date.value = newDate().toString();
-// }
 
 const submitBtn = document.querySelector("input[type=submit]");
 
